@@ -12,15 +12,15 @@
   position: relative;
   overflow: hidden;
   padding: 20px 30px;
-  overflow: hidden;
 }
+
 .bag-container {
   position: absolute;
   bottom: -200px;
   left: 30%;
-  transform: translateX(-30%);
-  transform: rotate(20deg);
+  transform: translateX(-30%) rotate(20deg);
   z-index: 1;
+  opacity: 0;
 }
 
 .bag-container img {
@@ -33,6 +33,7 @@
   display: flex;
   flex-direction: column;
   width: 500px;
+  opacity: 0;
 }
 
 .bag-header h1 {
@@ -54,12 +55,17 @@
   bottom: -150px;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0;
 }
 
 .top-link {
   width: 450px;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 70px;
+  opacity: 0;
 }
 
 .top-link .top-desc img {
@@ -99,17 +105,14 @@ button.button-primary {
   color: black;
 }
 
-.top-link {
-  position: absolute;
-  top: 50px;
-  right: 70px;
-}
-
 .controls {
   position: absolute;
   top: 50%;
-  right: 0px;
-  transform: translateX(-50%);
+  right: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .controls img {
@@ -122,24 +125,72 @@ button.button-primary {
   transform: rotate(180deg);
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .controls .btn {
   background-color: white;
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.controls .btn:hover {
+.controls .btn:hover:not(.disabled) {
   background-color: #ececec;
 }
 
 .btn.disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ececec;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateX(-100px) rotate(20deg);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(-30%) rotate(20deg);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+      opacity: 0;
+      transform: translateX(100px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
 }
