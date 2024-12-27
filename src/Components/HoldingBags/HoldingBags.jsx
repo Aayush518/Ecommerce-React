@@ -10,7 +10,7 @@ const HoldingBags = () => {
             <div className='item'>
                 <div className="top-details">
                     <div className="name">
-                        modern wuality and mind freshing color bag
+                        modern Quality and mind freshing color bag
                     </div>
                     <div className="visit">
                         <img src={visitIcon} alt="" />
@@ -23,7 +23,7 @@ const HoldingBags = () => {
             <div className='item'>
                 <div className="top-details">
                     <div className="name">
-                        modern wuality and mind freshing color bag
+                        modern Quality and mind freshing color bag
                     </div>
                     <div className="visit">
                         <img src={visitIcon} alt="" />

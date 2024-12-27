@@ -67,6 +67,7 @@
 
 .Navbar .search input{
     width: 100%;
+    min-width: 300px;
     height: 100%;
     padding:16px 24px;
     border:none;

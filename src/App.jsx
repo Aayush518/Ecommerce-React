@@ -5,6 +5,7 @@ import SupportedBy from './Components/SupportedBy/SupportedBy.jsx';
 import BrandsCards from './Components/BrandsCards/BrandsCards.jsx';
 import Bags from './Components/Bags/Bags.jsx';
 import HoldingBags from './Components/HoldingBags/HoldingBags.jsx';
+import Footer from './Components/Footer/Footer.jsx';
 function App() {
 
   return (
@@ -15,6 +16,7 @@ function App() {
       <Bags />
       <SupportedBy />
       <HoldingBags />
+      <Footer />
     </>
   )
 }
