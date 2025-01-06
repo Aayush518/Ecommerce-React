@@ -1,13 +1,17 @@
 import "./Navbar.css";
+import { useState } from "react";
 import hamBurger from "../../assets/icons/hamburger-4-svgrepo-com.svg";
 import profile from "../../assets/icons/profile-svgrepo-com (2).svg";
 import heart from "../../assets/icons/heart-svgrepo-com.svg";
 import shoppingBag from "../../assets/icons/bag-4-svgrepo-com.svg";
 import searchIcon from "../../assets/icons/search-5-svgrepo-com.svg";
-import { useState } from "react";
+import CartModal from "../CartModal/CartModal";
+import { useCart } from "../../context/CartContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { getCartCount } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,8 +28,13 @@ const Navbar = () => {
           <div className="icon-container">
             <img src={heart} alt="Favorites" />
           </div>
-          <div className="icon-container">
+          <div className="icon-container relative" onClick={() => setIsCartOpen(true)}>
             <img src={shoppingBag} alt="Cart" />
+            {getCartCount() > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {getCartCount()}
+              </span>
+            )}
           </div>
           <div className="icon-container">
             <img src={profile} alt="Profile" />
@@ -33,7 +42,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Show/hide based on isMenuOpen */}
       <div className={`bottom-nav ${isMenuOpen ? "open" : ""}`}>
         <div className="categories">
           <button className="btn category">Men</button>
@@ -57,6 +65,8 @@ const Navbar = () => {
           <button className="btn category">FAQs</button>
         </div>
       </div>
+
+      <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </div>
   );
 };

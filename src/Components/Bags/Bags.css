@@ -1,30 +1,31 @@
 .bags {
   width: 100%;
   padding: 24px 42px;
-
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
 
-form {
+form.bagCategory {
   display: flex;
   align-items: center;
   gap: 24px;
   padding: 0 42px;
+  flex-wrap: wrap;
 }
 
 form.bagCategory .option {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
 form.bagCategory label {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
   font-weight: 300;
   letter-spacing: 0.5px;
+  cursor: pointer;
 }
 
 /* Styling the radio button */
@@ -33,4 +34,41 @@ form.bagCategory input[type="radio"] {
   height: 24px;
   border-radius: 50%;
   accent-color: black;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .bags {
+    padding: 16px 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  form.bagCategory {
+    padding: 0 20px;
+    gap: 16px;
+  }
+
+  form.bagCategory label {
+    font-size: 1.2rem;
+  }
+
+  form.bagCategory input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bags {
+    padding: 12px 16px;
+    grid-template-columns: 1fr;
+  }
+
+  form.bagCategory {
+    padding: 0 16px;
+    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
