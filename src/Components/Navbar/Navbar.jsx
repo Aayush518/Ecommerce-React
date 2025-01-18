@@ -7,11 +7,12 @@ import shoppingBag from "../../assets/icons/bag-4-svgrepo-com.svg";
 import searchIcon from "../../assets/icons/search-5-svgrepo-com.svg";
 import CartModal from "../CartModal/CartModal";
 import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const { getCartCount } = useCart();
+  const { getCartCount, getWishlistCount } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,11 +24,18 @@ const Navbar = () => {
         <div className="hamburger icon-container" onClick={toggleMenu}>
           <img src={hamBurger} alt="Menu" />
         </div>
-        <div className="logo fw-bold">Bagstore</div>
+        <Link to="/" className="logo fw-bold" style={{ textDecoration: "none", color: "inherit" }}>
+          Bagstore
+        </Link>
         <div className="right-menus">
-          <div className="icon-container">
+          <Link to="/wishlist" className="icon-container relative">
             <img src={heart} alt="Favorites" />
-          </div>
+            {getWishlistCount() > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {getWishlistCount()}
+              </span>
+            )}
+          </Link>
           <div className="icon-container relative" onClick={() => setIsCartOpen(true)}>
             <img src={shoppingBag} alt="Cart" />
             {getCartCount() > 0 && (
