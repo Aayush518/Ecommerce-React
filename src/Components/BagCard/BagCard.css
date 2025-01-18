@@ -1,58 +1,95 @@
-.bagCard {
-  background-color: #f3f3f3 !important;
-  border: 0px;
-  padding: 20px 30px;
+/* src/Components/BagCard/BagCard.css */
+.bag-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  gap: 48px;
-}
-
-.bagCard .top-details {
-  display: flex;
-  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.bagCard .bag-image {
-  width: 200px;
+.bag-image {
+  width: 100%;
   height: 200px;
   object-fit: contain;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.bag-image img {
+.bag-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.bag-card h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: center;
+  color: #333333;
+}
+
+.bag-card p {
+  font-size: 1.1rem;
+  color: #000000;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bag-actions {
+  display: flex;
+  gap: 1rem;
   width: 100%;
-  height: 100%;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  justify-content: center;
 }
 
-.right-controls {
-  display: flex;
-  gap: 10px;
-}
-
-.right-controls .heart,
-.right-controls .cart {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
+.add-to-cart-btn, .wishlist-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  background-color: white;
-  border-radius: 50%;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
 
+.add-to-cart-btn {
+  background-color: #000000;
+  color: white;
+  flex: 2;
+  max-width: 150px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #333333;
+}
+
+.wishlist-btn {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 0.5rem;
+  flex: 1;
+  max-width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.right-controls img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.wishlist-btn.active {
+  background-color: #ffebeb;
+  border-color: #ff4444;
 }
 
+@media (max-width: 768px) {
+  .bag-card {
+      max-width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bag-card {
+      max-width: 100%;
+  }
+}
