@@ -7,6 +7,7 @@ import Bags from './Components/Bags/Bags.jsx';
 import HoldingBags from './Components/HoldingBags/HoldingBags.jsx';
 import Wishlist from './Components/Wishlist/Wishlist.jsx';
 import Footer from './Components/Footer/Footer.jsx';
+import Checkout from './Components/Checkout/Checkout.jsx'; // Import Checkout component
 import { CartProvider } from './context/CartContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -26,6 +27,7 @@ function App() {
             </>
           } />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<Checkout />} /> {/* Add Route for Checkout */}
         </Routes>
         <Footer />
       </Router>
