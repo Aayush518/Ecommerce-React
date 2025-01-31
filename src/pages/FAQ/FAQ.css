@@ -1,0 +1,127 @@
+.faq-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+  }
+  
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .faq-header h1 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .faq-header p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+  
+  .faq-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .faq-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .faq-question h3 {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    margin-top: 1rem;
+  }
+  
+  .faq-answer p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .faq-contact {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+  }
+  
+  .faq-contact h2 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+  }
+  
+  .faq-contact p {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-btn {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .faq-header h1 {
+      font-size: 2rem;
+    }
+    
+    .faq-item {
+      padding: 1.25rem;
+    }
+    
+    .faq-question h3 {
+      font-size: 1rem;
+    }
+    
+    .faq-contact {
+      padding: 2rem 1.5rem;
+    }
+  }

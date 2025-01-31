@@ -1,0 +1,145 @@
+.product-details-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .product-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  .features, .specifications {
+    margin-bottom: 2rem;
+  }
+  
+  .features h2, .specifications h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .features ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .features li {
+    padding: 0.5rem 0;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .features li::before {
+    content: "•";
+    color: #000;
+  }
+  
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .spec-label {
+    color: #666;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+  }
+  
+  .spec-value {
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .add-to-cart {
+    flex: 1;
+    padding: 1rem;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .add-to-cart:hover {
+    background: #333;
+  }
+  
+  .wishlist-btn {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .wishlist-btn:hover {
+    background: #f5f5f5;
+  }
+  
+  .wishlist-btn.active {
+    background: #ffebee;
+    border-color: #ff4444;
+  }
+  
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .product-info h1 {
+      font-size: 1.5rem;
+    }
+    
+    .specs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
