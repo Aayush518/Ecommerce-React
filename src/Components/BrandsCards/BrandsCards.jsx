@@ -9,11 +9,10 @@ import etsy from '../../assets/logos/etsy.svg'
 import ebay from '../../assets/logos/ebay-svgrepo-com.svg'
 
 const BrandsCards = () => {
-
     const logos = [nike, adidas, puma, rebook, zara, asos, etsy, ebay]
 
     return (
-        <>
+        <div className="brands-container">
             <h1 className="section-title">We Supported By</h1>
             <div className='supportedBy'>
                 <div className="card-grid">
@@ -24,7 +23,7 @@ const BrandsCards = () => {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

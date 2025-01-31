@@ -25,14 +25,14 @@ const SupportedBy = () => {
     ]
 
     return (
-        <>
+        <div className="supported-by-container">
             <h1 className='section-title'>We Supported By</h1>
             <div className='supportedBy'>
                 {cardDetails.map((card, index) => (
                     <Card key={index} {...card} />
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 

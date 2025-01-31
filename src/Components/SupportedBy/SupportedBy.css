@@ -1,3 +1,10 @@
+.supported-by-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .supportedBy {
   display: flex;
   align-items: center;
@@ -9,7 +16,6 @@
 }
 
 h1.section-title {
-  display: inline;
   text-align: center;
   font-size: 2.7rem;
   font-weight: 300;
@@ -24,6 +30,8 @@ h1.section-title {
 
 @media screen and (max-width: 768px) {
   h1.section-title {
+    text-align: center;
+    width: 100%;
     font-size: 2rem;
   }
 }
