@@ -1,12 +1,14 @@
 .holdingBags {
   display: flex;
-  width: 100%;
-  padding: 0px 42px;
-  justify-content: space-between;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  padding: 0px 20px;
+  justify-content: center;
 }
 
 .holdingBags .item {
-  flex-basis: 49%;
+  flex: 1 1 calc(50% - 20px); 
+  max-width: calc(50% - 20px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,6 +16,23 @@
   height: 500px;
   border-radius: 10px;
   padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.holdingBags .item .top-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  z-index: 1;
+}
+
+.holdingBags .item .top-details .name {
+  font-size: 1.4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: black;
+  max-width: 280px;
 }
 
 .holdingBags .item .top-details .visit {
@@ -45,16 +64,28 @@
   border-radius: 10px;
 }
 
-.holdingBags .item .top-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
+@media (max-width: 768px) {
+  .holdingBags .item {
+    flex: 1 1 100%; 
+    max-width: 100%;
+    height: 350px;
+  }
+
+  .holdingBags {
+    justify-content: flex-start; 
+  }
+
+  .holdingBags .item .top-details .name {
+    font-size: 1.2rem; 
+  }
 }
 
-.holdingBags .item .top-details .name {
-  font-size: 1.4rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: black;
-  max-width: 280px;
+@media (max-width: 480px) {
+  .holdingBags .item {
+    height: 280px; 
+  }
+
+  .holdingBags .item .top-details .name {
+    font-size: 1rem; 
+  }
 }

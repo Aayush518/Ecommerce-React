@@ -1,58 +1,55 @@
 // src/Components/BagCard/BagCard.jsx
-import './BagCard.css';
-import heart from '../../assets/icons/heart-svgrepo-com.svg';
-import cart from '../../assets/icons/bag-4-svgrepo-com.svg';
-import PropTypes from 'prop-types';
 import { useCart } from '../../context/CartContext';
+import './BagCard.css';
+import PropTypes from 'prop-types';
 
-const BagCard = ({ bagTitle, bagPrice, bagImage }) => {
-    const { addToCart, addToWishlist } = useCart(); // Add addToWishlist function to the CartContext
-
+const BagCard = ({ bagImage, bagTitle, bagPrice }) => {
+    const { addToCart, addToWishlist, isInWishlist } = useCart();
+    
     const handleAddToCart = () => {
-        addToCart({
-            id: bagTitle, // Using title as ID for simplicity
+        const item = {
+            id: Math.random().toString(), // In a real app, use proper unique IDs
+            bagImage,
             bagTitle,
-            bagPrice,
-            bagImage
-        });
+            bagPrice
+        };
+        addToCart(item);
     };
 
     const handleAddToWishlist = () => {
-        addToWishlist({
-            id: bagTitle, // Using title as ID for simplicity
+        const item = {
+            id: Math.random().toString(),
+            bagImage,
             bagTitle,
-            bagPrice,
-            bagImage
-        });
+            bagPrice
+        };
+        addToWishlist(item);
     };
 
     return (
-        <div className='bagCard'>
-            <div className="top-details">
-                <div className="left-details">
-                    <div className="bag-name">{bagTitle}</div>
-                    <div className="bag-price">${bagPrice}</div>
-                </div>
-                <div className="right-controls">
-                    <div className="heart" onClick={handleAddToWishlist}>
-                        <img src={heart} alt="Add to wishlist" />
-                    </div>
-                    <div className="cart" onClick={handleAddToCart}>
-                        <img src={cart} alt="Add to cart" />
-                    </div>
-                </div>
-            </div>
-            <div className="bag-image">
-                <img src={bagImage} alt={bagTitle} />
+        <div className="bag-card">
+            <img src={bagImage} alt={bagTitle} className="bag-image" />
+            <h3>{bagTitle}</h3>
+            <p>${bagPrice}</p>
+            <div className="bag-actions">
+                <button onClick={handleAddToCart} className="add-to-cart-btn">
+                    Add to Cart
+                </button>
+                <button 
+                    onClick={handleAddToWishlist} 
+                    className={`wishlist-btn ${isInWishlist(bagTitle) ? 'active' : ''}`}
+                >
+                    {isInWishlist(bagTitle) ? '❤️' : '🤍'}
+                </button>
             </div>
         </div>
     );
 };
 
 BagCard.propTypes = {
+    bagImage: PropTypes.string.isRequired,
     bagTitle: PropTypes.string.isRequired,
-    bagPrice: PropTypes.number.isRequired,
-    bagImage: PropTypes.string.isRequired
+    bagPrice: PropTypes.number.isRequired
 };
 
 export default BagCard;

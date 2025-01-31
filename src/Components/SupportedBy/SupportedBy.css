@@ -4,10 +4,44 @@
   justify-content: space-between;
   width: 100%;
   padding: 24px 42px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 h1.section-title {
   text-align: center;
   font-size: 2.7rem;
   font-weight: 300;
+}
+
+@media screen and (max-width: 992px) {
+  .supportedBy {
+    justify-content: space-around;
+    padding: 24px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1.section-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .supportedBy {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    padding: 16px;
+    width: 100%;
+  }
+  
+  .supportedBy > * {
+    width: 100%; 
+    margin: 0 auto; 
+  }
+  
+  h1.section-title {
+    font-size: 1.8rem;
+  }
 }

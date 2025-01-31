@@ -1,11 +1,11 @@
-// src/Components/CartModal/CartModal.jsx
-// working  with cart
 import { useCart } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './CartModal.css';
 import closeIcon from '../../assets/icons/close-svgrepo-com.svg';
 
 const CartModal = ({ isOpen, onClose }) => {
     const { cartItems, removeFromCart } = useCart();
+    const navigate = useNavigate(); // Initialize useNavigate
 
     if (!isOpen) return null;
 
@@ -47,7 +47,13 @@ const CartModal = ({ isOpen, onClose }) => {
                             <span>Total:</span>
                             <span>${total.toFixed(2)}</span>
                         </div>
-                        <button className="checkout-btn">Checkout</button>
+                        {/* Link Checkout Button to Checkout Page */}
+                        <button 
+                            className="checkout-btn" 
+                            onClick={() => navigate('/checkout')} // Navigate to checkout
+                        >
+                            Checkout
+                        </button>
                     </div>
                 )}
             </div>
