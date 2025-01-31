@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import hamBurger from "../../assets/icons/hamburger-4-svgrepo-com.svg";
 import profile from "../../assets/icons/profile-svgrepo-com (2).svg";
 import heart from "../../assets/icons/heart-svgrepo-com.svg";
@@ -7,15 +8,22 @@ import shoppingBag from "../../assets/icons/bag-4-svgrepo-com.svg";
 import searchIcon from "../../assets/icons/search-5-svgrepo-com.svg";
 import CartModal from "../CartModal/CartModal";
 import { useCart } from "../../context/CartContext";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const { getCartCount, getWishlistCount } = useCart();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    if (isProfileOpen) setIsProfileOpen(false);
+  };
+
+  const toggleProfile = () => {
+    setIsProfileOpen(!isProfileOpen);
+    if (isMenuOpen) setIsMenuOpen(false);
   };
 
   return (
@@ -44,8 +52,21 @@ const Navbar = () => {
               </span>
             )}
           </div>
-          <div className="icon-container">
-            <img src={profile} alt="Profile" />
+          <div className="profile-container">
+            <div className="icon-container" onClick={toggleProfile}>
+              <img src={profile} alt="Profile" />
+            </div>
+            {isProfileOpen && (
+              <div className="profile-dropdown">
+                <div className="profile-menu">
+                  <Link to="/login" className="profile-item">Sign In</Link>
+                  <Link to="/signup" className="profile-item">Create Account</Link>
+                  <div className="profile-divider"></div>
+                  <Link to="/orders" className="profile-item">My Orders</Link>
+                  <Link to="/settings" className="profile-item">Settings</Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
