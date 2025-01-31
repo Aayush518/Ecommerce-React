@@ -7,7 +7,9 @@ import Bags from './Components/Bags/Bags.jsx';
 import HoldingBags from './Components/HoldingBags/HoldingBags.jsx';
 import Wishlist from './Components/Wishlist/Wishlist.jsx';
 import Footer from './Components/Footer/Footer.jsx';
-import Checkout from './Components/Checkout/Checkout.jsx'; // Import Checkout component
+import Checkout from './Components/Checkout/Checkout.jsx';
+import Login from './Components/Auth/Login.jsx';
+import Signup from './Components/Auth/Signup.jsx';
 import { CartProvider } from './context/CartContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -27,7 +29,9 @@ function App() {
             </>
           } />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/checkout" element={<Checkout />} /> {/* Add Route for Checkout */}
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
         <Footer />
       </Router>
