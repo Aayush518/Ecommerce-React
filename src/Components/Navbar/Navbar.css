@@ -182,14 +182,13 @@
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
   .profile-dropdown {
-      position: fixed;
-      top: auto;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      border-radius: 1rem 1rem 0 0;
-      box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+      bottom: auto; /* Prevents it from sticking to the bottom */
+      max-height: 50vh; /* Ensures it never takes up more than 50% of the screen height */
+      overflow-y: auto; /* Enables scrolling inside if content is too long */
   }
+}
+
+
 
   .profile-menu {
       padding: 1rem;

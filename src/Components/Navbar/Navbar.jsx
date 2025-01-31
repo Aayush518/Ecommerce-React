@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import hamBurger from "../../assets/icons/hamburger-4-svgrepo-com.svg";
 import profile from "../../assets/icons/profile-svgrepo-com (2).svg";
 import heart from "../../assets/icons/heart-svgrepo-com.svg";
@@ -15,6 +15,7 @@ const Navbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const { getCartCount, getWishlistCount } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,6 +25,11 @@ const Navbar = () => {
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
     if (isMenuOpen) setIsMenuOpen(false);
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -62,8 +68,8 @@ const Navbar = () => {
                   <Link to="/login" className="profile-item">Sign In</Link>
                   <Link to="/signup" className="profile-item">Create Account</Link>
                   <div className="profile-divider"></div>
+                  <Link to="/profile" className="profile-item">My Profile</Link>
                   <Link to="/orders" className="profile-item">My Orders</Link>
-                  <Link to="/settings" className="profile-item">Settings</Link>
                 </div>
               </div>
             )}
@@ -90,8 +96,24 @@ const Navbar = () => {
           <img src={searchIcon} alt="Search" />
         </div>
         <div className="additional-links">
-          <button className="btn category">About</button>
-          <button className="btn category">FAQs</button>
+          <button 
+            className={`btn category ${location.pathname === '/about' ? 'active' : ''}`}
+            onClick={() => handleNavigation('/about')}
+          >
+            About
+          </button>
+          <button 
+            className={`btn category ${location.pathname === '/faq' ? 'active' : ''}`}
+            onClick={() => handleNavigation('/faq')}
+          >
+            FAQs
+          </button>
+          <button 
+            className={`btn category ${location.pathname === '/contact' ? 'active' : ''}`}
+            onClick={() => handleNavigation('/contact')}
+          >
+            Contact
+          </button>
         </div>
       </div>
 
