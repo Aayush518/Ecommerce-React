@@ -13,9 +13,11 @@ import Signup from './Components/Auth/Signup.jsx';
 import About from './pages/About/About.jsx';
 import FAQ from './pages/FAQ/FAQ.jsx';
 import Contact from './pages/Contact/Contact.jsx';
+import Profile from './pages/Profile/Profile.jsx';
 import ProductDetails from './pages/ProductDetails/ProductDetails.jsx';
 import { CartProvider } from './context/CartContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
     <CartProvider>
@@ -39,7 +41,7 @@ function App() {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
-
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
         <Footer />
