@@ -11,13 +11,31 @@
     margin-bottom: 2rem;
     color: #000000;
     font-size: 2rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.wishlist-container h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #000000;
 }
 
 .empty-wishlist {
     text-align: center;
     color: #666666;
     font-size: 1.1rem;
-    padding: 2rem;
+    padding: 3rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 600px;
 }
 
 .wishlist-grid {
@@ -34,12 +52,30 @@
     padding: 1.5rem;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.wishlist-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4444, #ff8888);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .wishlist-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.wishlist-item:hover::before {
+    opacity: 1;
 }
 
 .wishlist-item img {
@@ -47,6 +83,11 @@
     height: 200px;
     object-fit: contain;
     margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.wishlist-item:hover img {
+    transform: scale(1.05);
 }
 
 .wishlist-item h2 {
@@ -66,7 +107,7 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .wishlist-actions button {
@@ -74,9 +115,11 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     font-size: 0.9rem;
     min-width: 120px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .wishlist-actions button:first-child {
@@ -86,6 +129,8 @@
 
 .wishlist-actions button:first-child:hover {
     background-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .wishlist-actions button:last-child {
@@ -95,6 +140,29 @@
 
 .wishlist-actions button:last-child:hover {
     background-color: #ff0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 68, 68, 0.25);
+}
+
+.wishlist-item-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.wishlist-item-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.wishlist-item-exit {
+    opacity: 1;
+}
+
+.wishlist-item-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
 }
 
 @media (max-width: 1200px) {

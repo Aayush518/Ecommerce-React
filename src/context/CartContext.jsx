@@ -62,8 +62,10 @@ const CartProvider = ({ children }) => {
     setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
+  // Enhanced isInWishlist function that's more robust
   const isInWishlist = (id) => {
-    return wishlistItems.some((item) => item.id === id);
+    if (!id) return false;
+    return wishlistItems.some((item) => String(item.id) === String(id));
   };
 
   const getCartCount = () =>

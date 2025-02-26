@@ -1,95 +1,105 @@
 /* src/Components/BagCard/BagCard.css */
 .bag-card {
-  background: #ffffff;
+  background: white;
   border-radius: 8px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
+  position: relative;
+}
+
+.bag-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.bag-image-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .bag-image {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-.bag-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+.bag-card:hover .bag-image {
+  transform: scale(1.05);
+}
+
+/* Improved wishlist button positioning */
+.bag-image-container .wishlist-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
 .bag-card h3 {
   font-size: 1.2rem;
-  margin: 0;
+  margin: 0.5rem 0;
   text-align: center;
-  color: #333333;
+  color: #333;
 }
 
 .bag-card p {
   font-size: 1.1rem;
   color: #000000;
   font-weight: 600;
-  margin: 0;
+  margin: 0.5rem 0 1rem;
 }
 
 .bag-actions {
   display: flex;
-  gap: 1rem;
   width: 100%;
   justify-content: center;
-}
-
-.add-to-cart-btn, .wishlist-btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 0.9rem;
+  margin-top: auto;
 }
 
 .add-to-cart-btn {
   background-color: #000000;
   color: white;
-  flex: 2;
-  max-width: 150px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
 }
 
 .add-to-cart-btn:hover {
   background-color: #333333;
-}
-
-.wishlist-btn {
-  background-color: #ffffff;
-  border: 1px solid #dfdada;
-  padding: 0.5rem;
-  flex: 1;
-  max-width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wishlist-btn.active {
-  background-color: #ffebeb;
-  border-color: #ff4444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
   .bag-card {
-      max-width: 240px;
+    max-width: 240px;
+  }
+  
+  .add-to-cart-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .bag-card {
-      max-width: 100%;
+    max-width: 100%;
   }
 }

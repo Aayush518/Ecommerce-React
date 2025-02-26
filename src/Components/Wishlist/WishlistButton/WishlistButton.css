@@ -2,7 +2,7 @@
 .wishlist-button {
     background: none;
     border: none;
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
     position: absolute;
     top: 10px;
@@ -12,32 +12,85 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    width: 36px;
+    height: 36px;
 }
 
 .wishlist-button:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.15);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.3), 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .wishlist-icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     color: #e53e3e;
+    transition: color 0.2s ease, transform 0.3s ease;
+}
+
+.wishlist-button:not(.active):hover .wishlist-icon {
+    color: #ff0000;
+    transform: scale(1.1);
+}
+
+/* Active state changes */
+.wishlist-button.active {
+    background-color: #ffefef;
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.25);
 }
 
 .wishlist-button.active .wishlist-icon {
-    animation: pulse 0.3s ease-in-out;
+    color: #ff0000;
+    fill: #ff0000;
+    animation: heartPulse 0.5s ease-in-out;
 }
 
-@keyframes pulse {
+/* Make sure SVG fill works properly for active state */
+.wishlist-button.active svg {
+    fill: #ff0000;
+    color: #ff0000;
+}
+
+@keyframes heartPulse {
     0% {
         transform: scale(1);
     }
-    50% {
+    15% {
+        transform: scale(0.8);
+    }
+    30% {
+        transform: scale(1.4);
+    }
+    45% {
+        transform: scale(0.9);
+    }
+    60% {
         transform: scale(1.2);
     }
     100% {
         transform: scale(1);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .wishlist-button {
+        padding: 8px;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .wishlist-icon {
+        width: 18px;
+        height: 18px;
     }
 }
