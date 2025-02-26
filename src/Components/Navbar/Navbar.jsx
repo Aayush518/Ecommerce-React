@@ -34,86 +34,88 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <div className="top-nav">
-        <div className="hamburger icon-container" onClick={toggleMenu}>
-          <img src={hamBurger} alt="Menu" />
-        </div>
-        <Link to="/" className="logo fw-bold" style={{ textDecoration: "none", color: "inherit" }}>
-          Bagstore
-        </Link>
-        <div className="right-menus">
-          <Link to="/wishlist" className="icon-container relative">
-            <img src={heart} alt="Favorites" />
-            {getWishlistCount() > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {getWishlistCount()}
-              </span>
-            )}
+      <div className="navbar-inner">
+        <div className="top-nav">
+          <div className="hamburger icon-container" onClick={toggleMenu}>
+            <img src={hamBurger} alt="Menu" />
+          </div>
+          <Link to="/" className="logo fw-bold" style={{ textDecoration: "none", color: "inherit" }}>
+            Bagstore
           </Link>
-          <div className="icon-container relative" onClick={() => setIsCartOpen(true)}>
-            <img src={shoppingBag} alt="Cart" />
-            {getCartCount() > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {getCartCount()}
-              </span>
-            )}
-          </div>
-          <div className="profile-container">
-            <div className="icon-container" onClick={toggleProfile}>
-              <img src={profile} alt="Profile" />
+          <div className="right-menus">
+            <Link to="/wishlist" className="icon-container relative">
+              <img src={heart} alt="Favorites" />
+              {getWishlistCount() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getWishlistCount()}
+                </span>
+              )}
+            </Link>
+            <div className="icon-container relative" onClick={() => setIsCartOpen(true)}>
+              <img src={shoppingBag} alt="Cart" />
+              {getCartCount() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getCartCount()}
+                </span>
+              )}
             </div>
-            {isProfileOpen && (
-              <div className="profile-dropdown">
-                <div className="profile-menu">
-                  <Link to="/login" className="profile-item">Sign In</Link>
-                  <Link to="/signup" className="profile-item">Create Account</Link>
-                  <div className="profile-divider"></div>
-                  <Link to="/profile" className="profile-item">My Profile</Link>
-                  <Link to="/orders" className="profile-item">My Orders</Link>
-                </div>
+            <div className="profile-container">
+              <div className="icon-container" onClick={toggleProfile}>
+                <img src={profile} alt="Profile" />
               </div>
-            )}
+              {isProfileOpen && (
+                <div className="profile-dropdown">
+                  <div className="profile-menu">
+                    <Link to="/login" className="profile-item">Sign In</Link>
+                    <Link to="/signup" className="profile-item">Create Account</Link>
+                    <div className="profile-divider"></div>
+                    <Link to="/profile" className="profile-item">My Profile</Link>
+                    <Link to="/orders" className="profile-item">My Orders</Link>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={`bottom-nav ${isMenuOpen ? "open" : ""}`}>
-        <div className="categories">
-          <button className="btn category">Men</button>
-          <button className="btn category">Women</button>
-          <button className="btn category">Children</button>
-          <button className="btn category">Brand</button>
-          <button className="btn category">New</button>
-          <button className="btn category">Popular</button>
-        </div>
-        <div className="search">
-          <input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="Search..."
-          />
-          <img src={searchIcon} alt="Search" />
-        </div>
-        <div className="additional-links">
-          <button 
-            className={`btn category ${location.pathname === '/about' ? 'active' : ''}`}
-            onClick={() => handleNavigation('/about')}
-          >
-            About
-          </button>
-          <button 
-            className={`btn category ${location.pathname === '/faq' ? 'active' : ''}`}
-            onClick={() => handleNavigation('/faq')}
-          >
-            FAQs
-          </button>
-          <button 
-            className={`btn category ${location.pathname === '/contact' ? 'active' : ''}`}
-            onClick={() => handleNavigation('/contact')}
-          >
-            Contact
-          </button>
+        <div className={`bottom-nav ${isMenuOpen ? "open" : ""}`}>
+          <div className="categories">
+            <button className="btn category">Men</button>
+            <button className="btn category">Women</button>
+            <button className="btn category">Children</button>
+            <button className="btn category">Brand</button>
+            <button className="btn category">New</button>
+            <button className="btn category">Popular</button>
+          </div>
+          <div className="search">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search..."
+            />
+            <img src={searchIcon} alt="Search" />
+          </div>
+          <div className="additional-links">
+            <button 
+              className={`btn category ${location.pathname === '/about' ? 'active' : ''}`}
+              onClick={() => handleNavigation('/about')}
+            >
+              About
+            </button>
+            <button 
+              className={`btn category ${location.pathname === '/faq' ? 'active' : ''}`}
+              onClick={() => handleNavigation('/faq')}
+            >
+              FAQs
+            </button>
+            <button 
+              className={`btn category ${location.pathname === '/contact' ? 'active' : ''}`}
+              onClick={() => handleNavigation('/contact')}
+            >
+              Contact
+            </button>
+          </div>
         </div>
       </div>
 

@@ -12,13 +12,15 @@ const BrandsCards = () => {
     const logos = [nike, adidas, puma, rebook, zara, asos, etsy, ebay]
 
     return (
-        <div className="brands-container">
-            <h1 className="section-title">We Supported By</h1>
-            <div className='supportedBy'>
+        <div className="section-container">
+            <div className="brands-container">
+                <div className="title-wrapper">
+                    <h1 className="section-title">We Supported By</h1>
+                </div>
                 <div className="card-grid">
                     {logos.map((logo, index) => (
                         <div className="card" key={index}>
-                            <img src={logo} alt="" />
+                            <img src={logo} alt={`Brand logo ${index + 1}`} />
                         </div>
                     ))}
                 </div>

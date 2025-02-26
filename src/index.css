@@ -37,9 +37,20 @@ button {
   padding: 0 1rem;
 }
 
+.section-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
 @media (max-width: 768px) {
   html {
       font-size: 14px;
+  }
+  
+  .section-container {
+    padding: 3rem 1.5rem;
   }
 }
 
@@ -50,5 +61,9 @@ button {
   
   .container {
       padding: 0 0.5rem;
+  }
+  
+  .section-container {
+    padding: 2rem 1rem;
   }
 }

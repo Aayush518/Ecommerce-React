@@ -3,29 +3,41 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 2rem 1rem;
 }
 
 .section-title {
   text-align: center;
-  font-size: 2.7rem;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
   font-weight: 300;
-  margin-bottom: 20px; /* Add some spacing between title and cards if needed */
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
 }
 
 .card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
   width: 100%;
-  gap: 24px;
+  max-width: 1400px;
+  padding: 0;
 }
 
 .card-grid .card {
-  background-color: #f3f3f3 !important;
-  color: black;
-  flex-basis: 20%;
+  background-color: #f3f3f3;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
 }
 
+.card-grid img {
+  width: 100%;
+  height: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
 
 @media screen and (max-width: 1200px) {
   .card-grid .card {
@@ -34,6 +46,11 @@
 }
 
 @media screen and (max-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
   .card-grid .card {
     flex-basis: 45%; 
   }
@@ -44,15 +61,35 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .card-grid .card {
+    padding: 1rem;
+  }
+}
+
 @media screen and (max-width: 576px) {
+  .brands-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
   .card-grid {
     justify-content: center;
-    gap: 16px;
   }
   
   .card-grid .card {
     flex-basis: 100%; 
     max-width: 400px; 
+    padding: 0.8rem;
   }
   
   .card-grid img {

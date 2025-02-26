@@ -1,91 +1,93 @@
 .holdingBags {
-  display: flex;
-  flex-wrap: wrap; 
-  gap: 20px; 
-  padding: 0px 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .holdingBags .item {
-  flex: 1 1 calc(50% - 20px); 
-  max-width: calc(50% - 20px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   position: relative;
-  height: 500px;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 4/5;
+  border-radius: 12px;
   overflow: hidden;
+  padding: clamp(1rem, 2vw, 2rem);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  backdrop-filter: blur(5px);
 }
 
 .holdingBags .item .top-details {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: start;
-  z-index: 1;
+  gap: 1rem;
 }
 
 .holdingBags .item .top-details .name {
-  font-size: 1.4rem;
-  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
   text-transform: uppercase;
-  color: black;
+  color: #000;
   max-width: 280px;
 }
 
 .holdingBags .item .top-details .visit {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  cursor: pointer;
+  width: clamp(28px, 4vw, 32px);
+  height: clamp(28px, 4vw, 32px);
   background-color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.holdingBags .item .top-details img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.holdingBags .item .top-details .visit:hover {
+  transform: scale(1.1);
+}
+
+.holdingBags .item .image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .holdingBags .item .image img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
-  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.holdingBags .item:hover .image img {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
-  .holdingBags .item {
-    flex: 1 1 100%; 
-    max-width: 100%;
-    height: 350px;
-  }
-
   .holdingBags {
-    justify-content: flex-start; 
+    grid-template-columns: 1fr;
   }
 
-  .holdingBags .item .top-details .name {
-    font-size: 1.2rem; 
+  .holdingBags .item {
+    aspect-ratio: 16/9;
   }
 }
 
 @media (max-width: 480px) {
   .holdingBags .item {
-    height: 280px; 
+    aspect-ratio: 3/4;
   }
-
+  
   .holdingBags .item .top-details .name {
-    font-size: 1rem; 
+    font-size: 1rem;
+    max-width: 200px;
   }
 }

@@ -7,12 +7,17 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+.navbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 /* Top Navigation */
 .top-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
   background: white;
 }
 
@@ -140,7 +145,12 @@
 /* Tablet and up (768px and above) */
 @media screen and (min-width: 768px) {
   .Navbar {
-    padding: 1rem 2rem;
+    padding: 0;
+  }
+
+  .top-nav, .bottom-nav {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .hamburger {
@@ -173,6 +183,11 @@
 
 /* Desktop (1024px and above) */
 @media screen and (min-width: 1024px) {
+  .top-nav, .bottom-nav {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .Navbar {
     padding: 1rem 4rem;
   }
@@ -246,6 +261,20 @@
 
   .search {
     max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-nav, .bottom-nav {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .top-nav, .bottom-nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

@@ -3,22 +3,24 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 2rem 1rem;
 }
 
 .supportedBy {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   width: 100%;
-  padding: 24px 42px;
-  gap: 20px;
-  flex-wrap: wrap;
+  max-width: 1400px;
+  padding: 0;
 }
 
 h1.section-title {
   text-align: center;
-  font-size: 2.7rem;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
   font-weight: 300;
+  margin-bottom: 1.5rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 992px) {
@@ -29,6 +31,11 @@ h1.section-title {
 }
 
 @media screen and (max-width: 768px) {
+  .supportedBy {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
   h1.section-title {
     text-align: center;
     width: 100%;
@@ -37,17 +44,13 @@ h1.section-title {
 }
 
 @media screen and (max-width: 576px) {
-  .supportedBy {
-    display: grid; 
-    grid-template-columns: 1fr; 
-    gap: 20px;
-    padding: 16px;
-    width: 100%;
+  .supported-by-container {
+    padding: 1.5rem 0.5rem;
   }
   
-  .supportedBy > * {
-    width: 100%; 
-    margin: 0 auto; 
+  .supportedBy {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   h1.section-title {
